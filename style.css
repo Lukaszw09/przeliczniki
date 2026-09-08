@@ -1,0 +1,33 @@
+:root { color-scheme: dark; --bg: #090d14; --card: #121925; --text: #eef3ff; --muted: #94a2ba; --line: #3c4b64; --accent: #86a1ff; }
+* { box-sizing: border-box; }
+body { min-width: 320px; min-height: 100vh; margin: 0; color: var(--text); font-family: Inter, system-ui, sans-serif; background: radial-gradient(circle at top left, #1b2946, transparent 36rem), var(--bg); }
+header { padding: clamp(2.5rem, 7vw, 5rem) 1rem 2rem; text-align: center; }
+h1, h2, h3 { margin: 0; letter-spacing: -.03em; }
+h1 { font-size: clamp(2rem, 5vw, 3.4rem); }
+main { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; width: min(1160px, calc(100% - 2rem)); margin: auto; padding-bottom: 3rem; }
+main > h2 { grid-column: 1 / -1; margin: 0 0 .2rem; color: var(--muted); font-size: .9rem; text-transform: uppercase; letter-spacing: .14em; }
+main > .przelicznik { display: flex; min-width: 0; min-height: 245px; }
+.przelicznik { flex-direction: column; padding: 1.35rem; border: 1px solid rgba(150, 171, 218, .16); border-radius: 18px; background: linear-gradient(145deg, #172131, var(--card)); box-shadow: 0 18px 45px rgba(0, 0, 0, .2); transition: transform .18s, border-color .18s; }
+.przelicznik:hover { transform: translateY(-2px); border-color: rgba(134, 161, 255, .5); }
+.przelicznik h3 { margin-bottom: 1.3rem; font-size: 1.1rem; text-transform: capitalize; }
+.przelicznik form { display: flex; flex: 1; flex-direction: column; align-items: stretch; gap: .7rem; }
+.przelicznik form > div, .przelicznik > div[id^="jednostki_"] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(10rem, 1fr); gap: .6rem .75rem; align-content: start; }
+.przelicznik br { display: none; }
+input[type="number"] { min-width: 0; width: 100%; padding: .65rem .1rem; border: 0; border-bottom: 2px solid var(--line); outline: 0; color: var(--text); font: inherit; background: transparent; appearance: textfield; transition: border-color .16s, box-shadow .16s; }
+input[type="number"]::placeholder { color: #77849a; opacity: 1; }
+input[type="number"]:focus { border-bottom-color: var(--accent); box-shadow: 0 3px 0 -1px rgba(134, 161, 255, .25); }
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { margin: 0; appearance: none; }
+select { width: 100%; max-width: 100%; padding: .68rem .75rem; border: 1px solid var(--line); border-radius: 9px; outline: 0; color: var(--text); font: inherit; cursor: pointer; background: #0d1420; transition: border-color .16s, background .16s; }
+select:focus { border-color: var(--accent); background: #141e2e; }
+button { margin-top: .6rem; padding: .68rem .95rem; border: 1px solid transparent; border-radius: 9px; color: var(--text); font: inherit; font-weight: 650; cursor: pointer; background: #28354b; transition: transform .15s, background .15s, border-color .15s; }
+button:hover { border-color: #596b88; background: #34425b; }
+button:active { transform: translateY(1px); }
+button[id$="_dodaj"] { color: var(--accent); border-color: #42577d; background: transparent; }
+button[id$="_dodaj"]:hover { border-color: var(--accent); background: rgba(134, 161, 255, .12); }
+.tabela { width: min(720px, calc(100% - 2rem)); margin: 0 auto 3rem; overflow-x: auto; border: 1px solid rgba(150, 171, 218, .16); border-radius: 14px; background: var(--card); box-shadow: 0 18px 45px rgba(0, 0, 0, .2); }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: .8rem 1rem; text-align: left; border-bottom: 1px solid rgba(150, 171, 218, .13); }
+th { color: var(--accent); font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; background: rgba(134, 161, 255, .08); }
+tr:last-child td { border-bottom: 0; }
+tr:hover { background: rgba(134, 161, 255, .06); }
+@media (max-width: 760px) { header { padding-top: 2.5rem; } main { grid-template-columns: 1fr; width: min(100% - 1rem, 560px); } .przelicznik { padding: 1.1rem; border-radius: 14px; } .przelicznik:hover { transform: none; } .przelicznik form > div, .przelicznik > div[id^="jednostki_"] { grid-template-columns: 1fr; } }
