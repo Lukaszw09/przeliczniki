@@ -680,6 +680,68 @@ przycisk20.addEventListener("click", async function ()
     div.appendChild(document.createElement("br"));
 });
 
+
+let przycisk21 = document.getElementById("button21_dodaj");
+przycisk21.addEventListener("click", async function ()
+{
+    const odpowiedz = await fetch("sesja.php?typ=lepkości");
+    const ile = parseInt(await odpowiedz.text());
+
+    const div = document.getElementById("jednostki_lepkości");
+
+    const input = document.createElement("input");
+
+    input.type = "number";
+    input.placeholder = "Wprowadź liczbę";
+    input.id = `number${ile + 2}_lepkości`;
+
+
+    const select = document.createElement("select");
+    select.id = `jednostka${ile + 2}_lepkości`;
+    select.innerHTML = `
+
+    <option value="Pa·s">paskal·sekunda</option>
+    <option value="cP">centypoise</option>
+    <option value="mP">mili poise</option>
+    <option value="P">poise</option>
+    <option value="lb/(ft·s)">funt na stopę·sekundę</option>
+    <option value="lb/(in·s)">funt na cal·sekundę</option>
+    `;
+
+    div.appendChild(input);
+    div.appendChild(select);
+    div.appendChild(document.createElement("br"));
+});
+
+let przycisk22 = document.getElementById("button22_dodaj");
+Przycisk22.addEventListener("click", async function ()
+{
+    const odpowiedz = await fetch("sesja.php?typ=ladunek_elektryczny");
+    const ile = parseInt(await odpowiedz.text());
+
+    const div = document.getElementById("jednostki_ładunku_elektrycznego");
+    const input = document.createElement("input");
+
+    input.type = "number";
+    input.placeholder = "Wprowadź liczbę";
+    input.id = `number${ile + 2}_ładunku_elektrycznego`;
+    
+    const select = document.createElement("select");
+    select.id = `jednostka${ile + 2}_ładunku_elektrycznego`;
+    select.innerHTML = `
+        <option value="C">kulomb</option>
+        <option value="mC">milikulomb</option>
+        <option value="μC">mikrokulomb</option>
+        <option value="nC">nanokulomb</option>
+        <option value="pC">pikokulomb</option>
+        <option value="ah">amperogodzina</option>
+        <option value="mAh">miliamperogodzina</option>
+    `;
+    div.appendChild(input);
+    div.appendChild(select);
+    div.appendChild(document.createElement("br"));
+});
+
 async function przelicznik_dlugosci(input) {
     const inputy_dlugosc = document.querySelectorAll('#jednostki_dlugosci input[type="number"]');
     let jednostki_dlugosci = {
@@ -2194,6 +2256,158 @@ async function przelicznik_rezystancji(input) {
     }
 }
 
+async function przelicznik_lepkości(input) {
+    const inputy_lepkości = document.querySelectorAll('#jednostki_lepkości input[type="number"]');
+
+    let jednostki_lepkości = {
+        "Pa·s": 1,
+        "mPa·s": 0.001,
+        "cP": 0.001,
+        "P": 0.1,
+        "lb/(ft·s)": 1.4881639,
+        "lb/(in·s)": 172.8,
+    };
+
+    const numer_id = input.id.match(/\d+/)[0];
+    const jednostka_pobrana = document.getElementById(`jednostka${numer_id}_lepkości`);
+    const wartosc = parseFloat(input.value);
+
+    if (isNaN(wartosc)) return;
+
+    let pascale_na_sekunde;
+    switch (jednostka_pobrana.value) {
+        case "Pa·s":
+            pascale_na_sekunde = wartosc * jednostki_lepkości["Pa·s"];
+            break;
+        case "mPa·s":
+            pascale_na_sekunde = wartosc * jednostki_lepkości["mPa·s"];
+            break;
+        case "cP":
+            pascale_na_sekunde = wartosc * jednostki_lepkości["cP"];
+            break;
+        case "P":
+            pascale_na_sekunde = wartosc * jednostki_lepkości["P"];
+            break;
+        case "lb/(ft·s)":
+            pascale_na_sekunde = wartosc * jednostki_lepkości["lb/(ft·s)"];
+            break;
+        case "lb/(in·s)":
+            pascale_na_sekunde = wartosc * jednostki_lepkości["lb/(in·s)"];
+            break;
+    }
+
+    for (let i = 1; i <= inputy_lepkości.length; i++) {
+        const jednostka_zmiana = document.getElementById(`jednostka${i}_lepkości`);
+        let wynik = 0;
+        switch (jednostka_zmiana.value) {
+            case "Pa·s":
+                wynik = pascale_na_sekunde / jednostki_lepkości["Pa·s"];
+                document.getElementById(`number${i}_lepkości`).value = wynik;
+                break;
+            case "mPa·s":
+                wynik = pascale_na_sekunde / jednostki_lepkości["mPa·s"];
+                document.getElementById(`number${i}_lepkości`).value = wynik;
+                break;
+            case "cP":
+                wynik = pascale_na_sekunde / jednostki_lepkości["cP"];
+                document.getElementById(`number${i}_lepkości`).value = wynik;
+                break;
+            case "P":
+                wynik = pascale_na_sekunde / jednostki_lepkości["P"];
+                document.getElementById(`number${i}_lepkości`).value = wynik;
+                break;
+            case "lb/(ft·s)":
+                wynik = pascale_na_sekunde / jednostki_lepkości["lb/(ft·s)"];
+                document.getElementById(`number${i}_lepkości`).value = wynik;
+                break;
+            case "lb/(in·s)":
+                wynik = pascale_na_sekunde / jednostki_lepkości["lb/(in·s)"];
+                document.getElementById(`number${i}_lepkości`).value = wynik;
+                break;
+        }
+    }
+}
+
+async function przelicznik_ladunku(input) {
+    const inputy_ladunku = document.querySelectorAll('#jednostki_ładunku input[type="number"]');   
+
+    let jednostki_ladunku = {
+        "C": 1,
+        "mC": 0.001,
+        "µC": 0.000001,
+        "nC": 0.000000001,
+        "pC": 0.000000000001,
+        "ah": 3600,
+        "mAh": 3.6
+    };
+
+    const numer_id = input.id.match(/\d+/)[0];
+    const jednostka_pobrana = document.getElementById(`jednostka${numer_id}_ładunku`);
+    const wartosc = parseFloat(input.value);
+
+    if (isNaN(wartosc)) return;
+
+    let kulomby;
+    switch (jednostka_pobrana.value) {
+        case "C":
+            kulomby = wartosc * jednostki_ladunku["C"];
+            break; 
+        case "mC":
+            kulomby = wartosc * jednostki_ladunku["mC"];
+            break;
+        case "µC":
+            kulomby = wartosc * jednostki_ladunku["µC"];
+            break;
+        case "nC":
+            kulomby = wartosc * jednostki_ladunku["nC"];
+            break;
+        case "pC":
+            kulomby = wartosc * jednostki_ladunku["pC"];
+            break;
+        case "ah":
+            kulomby = wartosc * jednostki_ladunku["ah"];
+            break;
+        case "mAh":
+            kulomby = wartosc * jednostki_ladunku["mAh"];
+            break;
+    }
+
+    for (let i = 1; i <= inputy_ladunku.length; i++) {
+        const jednostka_zmiana = document.getElementById(`jednostka${i}_ładunku`);
+        let wynik = 0;
+        switch (jednostka_zmiana.value) {
+            case "C":
+                wynik = kulomby / jednostki_ladunku["C"];
+                document.getElementById(`number${i}_ładunku`).value = wynik;
+                break;
+            case "mC":
+                wynik = kulomby / jednostki_ladunku["mC"];
+                document.getElementById(`number${i}_ładunku`).value = wynik;
+                break;
+            case "µC":
+                wynik = kulomby / jednostki_ladunku["µC"];
+                document.getElementById(`number${i}_ładunku`).value = wynik;
+                break;
+            case "nC":
+                wynik = kulomby / jednostki_ladunku["nC"];
+                document.getElementById(`number${i}_ładunku`).value = wynik;
+                break;
+            case "pC":
+                wynik = kulomby / jednostki_ladunku["pC"];
+                document.getElementById(`number${i}_ładunku`).value = wynik;
+                break;
+            case "ah":
+                wynik = kulomby / jednostki_ladunku["ah"];
+                document.getElementById(`number${i}_ładunku`).value = wynik;
+                break;
+            case "mAh":
+                wynik = kulomby / jednostki_ladunku["mAh"];
+                document.getElementById(`number${i}_ładunku`).value = wynik;
+                break;
+        }
+    }
+}
+
 document.addEventListener("input", function(e){
 
     if(!e.target.matches("input[type='number']"))
@@ -2280,7 +2494,15 @@ document.addEventListener("input", function(e){
         case "przelicznik_rezystancji":
             przelicznik_rezystancji(e.target);
             break;
+        case "przelicznik_lepkości":
+            przelicznik_lepkości(e.target);
+            break;
+        case "przelicznik_ładunku":
+            przelicznik_ladunku(e.target);
+            break;
     }
+
+
 
 
 });

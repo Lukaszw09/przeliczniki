@@ -114,7 +114,6 @@
             </div>
 
             <button id="button1_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button1">Przelicz</button>
             </form>
         </div>
 
@@ -185,7 +184,6 @@
                 ?>
             </diV>   
             <button id="button2_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button2">Przelicz</button>
             </form>
         </div>
 
@@ -248,7 +246,6 @@
 
             </div>
             <button id="button3_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button3">Przelicz</button>
             </form>
         </div>
 
@@ -310,7 +307,6 @@
 
             </div>
             <button id="button4_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button4">Przelicz</button>
             </form>
         </div>
 
@@ -365,7 +361,6 @@
             ?>
             </div>
             <button id="button5_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button5">Przelicz</button>
             </form>
         </div>
 
@@ -432,7 +427,6 @@
             ?>
             </div>
             <button id="button6_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button6">Przelicz</button>
             </form>
         </div>
 
@@ -476,7 +470,6 @@
             </div>
 
             <button id="button7_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button7">Przelicz</button>
             </form>
         </div>
 
@@ -530,7 +523,6 @@
             ?>
             </div>
             <button id="button8_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button8">Przelicz</button>
             
             </form>
         </div>
@@ -602,9 +594,9 @@
             ?>
             </div>
             <button id="button9_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button9">Przelicz</button>
             </form>
         </div>
+        
 
         <div class="przelicznik" id="przelicznik_mocy">
             <h3>przelicznik mocy</h3>
@@ -662,7 +654,6 @@
             ?>
             </div>
             <button id="button10_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button10">Przelicz</button>
             </form>
 
         </div>
@@ -709,7 +700,6 @@
             ?>
             </div>
             <button id="button11_dodaj" type="button">dodaj jednostkę</button>    
-            <button id="button11">Przelicz</button>
             </form>
         </div>
             
@@ -752,7 +742,6 @@
             ?>
             </div>
             <button id="button12_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button12">Przelicz</button>
             </form>
         </div>
 
@@ -809,7 +798,6 @@
             ?>
             </div>
             <button id="button13_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button13">Przelicz</button>
             </form>
         </div>
 
@@ -848,7 +836,6 @@
             ?>
             </div>
             <button id="button14_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button14">Przelicz</button>
             </form>
         </div>
 
@@ -893,7 +880,6 @@
             ?>
             </div>
             <button id="button15_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button15">Przelicz</button>
             </form>
 
         </div>
@@ -942,7 +928,6 @@
             ?>
             </div>
             <button id="button16_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button16">Przelicz</button>
             </form>
         </div>
 
@@ -987,7 +972,6 @@
             ?>
             </div>
             <button id="button17_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button17">Przelicz</button>
             </form>
         </div>
         <div class="przelicznik" id="przelicznik_kat">
@@ -1034,7 +1018,6 @@
             ?>
             </div>
             <button id="button18_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button18">Przelicz</button>
             </form>
         </div>
 
@@ -1079,7 +1062,6 @@
             ?>
             </div>
             <button id="button19_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button19">Przelicz</button>
             </form>
         </div>
 
@@ -1124,9 +1106,115 @@
             ?>
             </div>
             <button id="button20_dodaj" type="button">dodaj jednostkę</button>
-            <button id="button20">Przelicz</button>
             </form>
         </div>
+
+            <div class="przelicznik" id="przelicznik_lepkości">
+                <h3>przelicznik lepkości</h3>
+                <form action="index.php" method="post" name="przelicznik_lepkości">
+                    <div id="jednostki_lepkości">
+                        <?php
+                        if(!isset($_SESSION["lepkości"]))
+                        {
+                            $_SESSION["lepkości"]=0;
+                        }
+                    ?>
+                    <input type="number" id="number1_lepkości" placeholder="Wprowadź liczbę">
+                    <select id="jednostka1_lepkości" class="jednostki">
+                        <option value="Pa·s"<?= zaznaczona("lepkości", 1, "Pa·s", "Pa·s") ?>>paskal·sekunda</option>
+                        <option value="cP"<?= zaznaczona("lepkości", 1, "cP", "Pa·s") ?>>centypoise</option>
+                        <option value="mP"<?= zaznaczona("lepkości", 1, "mP", "Pa·s") ?>>mili poise</option>
+                        <option value="P"<?= zaznaczona("lepkości", 1, "P", "Pa·s") ?>>poise</option>
+                        <option value="lb/(ft·s)"<?= zaznaczona("lepkości", 1, "lb/(ft·s)", "Pa·s") ?>>funt/(stop·sekunda)</option>
+                        <option value="lb/(in·h)"<?= zaznaczona("lepkości", 1, "lb/(in·h)", "Pa·s") ?>>funt/(cal·godzina)</option>
+                        
+                    </select><br>
+                    <input type="number" id="number2_lepkości" placeholder="Wprowadź liczbę">
+                    <select id="jednostka2_lepkości" class="jednostki">
+                        <option value="Pa·s"<?= zaznaczona("lepkości", 2, "Pa·s", "Pa·s") ?>>paskal·sekunda</option>
+                        <option value="cP"<?= zaznaczona("lepkości", 2, "cP", "Pa·s") ?>>centypoise</option>
+                        <option value="mP"<?= zaznaczona("lepkości", 2, "mP", "Pa·s") ?>>mili poise</option>
+                        <otion value="P"<?= zaznaczona("lepkości", 2, "P", "Pa·s") ?>>poise</option>
+                        <option value="lb/(ft·s)"<?= zaznaczona("lepkości", 2, "lb/(ft·s)", "Pa·s") ?>>funt/(stop·sekunda)</option>
+                        <option value="lb/(in·h)"<?= zaznaczona("lepkości", 2, "lb/(in·h)", "Pa·s") ?>>funt/(cal·godzina)</option>
+
+                    </select><br>
+                    <?php
+                        for($i=0;$i<($_SESSION["lepkości"] ?? 0);$i++)
+                            {
+                    ?>
+                        <input type="number" id="number<?= $i + 3 ?>_lepkości" placeholder="Wprowadź liczbę">
+                        <select id="jednostka<?= $i + 3 ?>_lepkości" class="jednostki">
+                        <option value="Pa·s"<?= zaznaczona("lepkości", $i + 3, "Pa·s", "Pa·s") ?>>paskal·sekunda</option>
+                        <option value="cP"<?= zaznaczona("lepkości", $i + 3, "cP", "Pa·s") ?>>centypoise</option>
+                        <option value="mP"<?= zaznaczona("lepkości", $i + 3, "mP", "Pa·s") ?>>mili poise</option>
+                        <option value="P"<?= zaznaczona("lepkości", $i + 3, "P", "Pa·s") ?>>poise</option>
+                        <option value="lb/(ft·s)"<?= zaznaczona("lepkości", $i + 3, "lb/(ft·s)", "Pa·s") ?>>funt/(stop·sekunda)</option>
+                        <otion value="lb/(in·h)"<?= zaznaczona("lepkości", $i + 3, "lb/(in·h)", "Pa·s") ?>>funt/(cal·godzina)</option>
+
+                        </select><br>
+                    <?php
+                            }  
+                    ?>
+                    </div>
+                    <button id="button21_dodaj" type="button">dodaj jednostkę</button>
+                </form>
+        </div>
+
+        <div class="przelicznik" id="ladunek_elektryczny">
+            <h3>przelicznik ładunku elektrycznego</h3>
+            <form action="index.php" method="post" name="przelicznik_ładunku">
+                <div id="jednostki_ładunku">
+                    <?php
+                    if(!isset($_SESSION["ladunek"]))
+                    {
+                        $_SESSION["ladunek"]=0;
+                    }
+                ?>
+            <input type="number" id="number1_ładunek" placeholder="Wprowadź liczbę">
+            <select id="jednostka1_ładunek" class="jednostki">
+                <option value="C"<?= zaznaczona("ladunek", 1, "C", "C") ?>>kulomb</option>
+                <option value="mC"<?= zaznaczona("ladunek", 1, "mC", "C") ?>>milikulomb</option>
+                <option value="µC"<?= zaznaczona("ladunek", 1, "µC", "C") ?>>mikrokulomb</option>
+                <option value="nC"<?= zaznaczona("ladunek", 1, "nC", "C") ?>>nanokulomb</option>
+                <option value="pC"<?= zaznaczona("ladunek", 1, "pC", "C") ?>>pikokulomb</option>
+                <option value="ah"<?= zaznaczona("ladunek", 1, "ah", "C") ?>>amperogodzina</option>
+                <option value="mAh"<?= zaznaczona("ladunek", 1, "mAh", "C") ?>>miliamperogodzina</option>
+            </select><br>
+
+            <input type="number" id="number2_ładunek" placeholder="Wprowadź liczbę">
+            <select id="jednostka2_ładunek" class="jednostki">
+                <option value="C"<?= zaznaczona("ladunek", 2, "C", "C") ?>>kulomb</option>
+                <option value="mC"<?= zaznaczona("ladunek", 2, "mC", "C") ?>>milikulomb</option>
+                <option value="µC"<?= zaznaczona("ladunek", 2, "µC", "C") ?>>mikrokulomb</option>
+                <option value="nC"<?= zaznaczona("ladunek", 2, "nC", "C") ?>>nanokulomb</option>
+                <option value="pC"<?= zaznaczona("ladunek", 2, "pC", "C") ?>>pikokulomb</option>
+                <option value="ah"<?= zaznaczona("ladunek", 2, "ah", "C") ?>>amperogodzina</option>
+                <option value="mAh"<?= zaznaczona("ladunek", 2, "mAh", "C") ?>>miliamperogodzina</option>
+
+            </select><br>
+            <?php
+                for($i=0;$i<($_SESSION["ladunek"] ?? 0);$i++)
+                    {
+            ?>
+                <input type="number" id="number<?= $i + 3 ?>_ładunek" placeholder="Wprowadź liczbę">
+                <select id="jednostka<?= $i + 3 ?>_ładunek" class="jednostki">
+                <option value="C"<?= zaznaczona("ladunek", $i + 3, "C", "C") ?>>kulomb</option>
+                <option value="mC"<?= zaznaczona("ladunek", $i + 3, "mC", "C") ?>>milikulomb</option>
+                <option value="µC"<?= zaznaczona("ladunek", $i + 3, "µC", "C") ?>>mikrokulomb</option>
+                <option value="nC"<?= zaznaczona("ladunek", $i + 3, "nC", "C") ?>>nanokulomb</option>
+                <option value="pC"<?= zaznaczona("ladunek", $i + 3, "pC", "C") ?>>pikokulomb</option>
+                <option value="ah"<?= zaznaczona("ladunek", $i + 3, "ah", "C") ?>>amperogodzina</option>
+                <option value="mAh"<?= zaznaczona("ladunek", $i + 3, "mAh", "C") ?>>miliamperogodzina</option>
+                </select><br>
+            <?php
+                    }
+            ?>
+            </div>
+            <button id="button22_dodaj" type="button">dodaj jednostkę</button>
+            </form>
+        </div>
+
        
     </main>
     <div class="tabela">
