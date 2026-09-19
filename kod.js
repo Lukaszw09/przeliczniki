@@ -106,7 +106,7 @@ przycisk3.addEventListener("click", async function ()
                 <option value="mi³">Mila sześcienna</option>
                 <option value="galusa">galon amerykański</option>
                 <option value="galuk">galon brytyjski</option>
-                <option value="bary">baryłka</option>
+                <option value="bary">barylka</option>
     `;
 
     div.appendChild(input);
@@ -140,9 +140,9 @@ przycisk4.addEventListener("click", async function ()
                 <option value="m/h">Metr na godzinę</option>
                 <option value="mi/h">Mila na godzinę</option>
                 <option value="ft/s">Stopa na sekundę</option>
-                <option value="mn/h">węzeł</option>
+                <option value="mn/h">węzel</option>
                 <option value="ma">mach</option>
-                <option value="c">światło</option>
+                <option value="c">światlo</option>
     `;
 
     div.appendChild(input);
@@ -176,7 +176,7 @@ przycisk5.addEventListener("click", async function ()
                 <option value="h">Godziny</option>
                 <option value="d">Dni</option>
                 <option value="wk">Tygodnie</option>
-                <option value="kw">kwartał</option>
+                <option value="kw">kwartal</option>
                 <option value="y">Lata</option>
     `;
 
@@ -281,7 +281,7 @@ przycisk8.addEventListener("click", async function ()
                 <option value="MePa">Megapaskale</option>
                 <option value="bar">bar</option>
                 <option value="psi ">funt na cal kwadratowy</option>
-                <option value="mmHg">milimetr słupa rtęci</option>
+                <option value="mmHg">milimetr slupa rtęci</option>
     `;
 
     div.appendChild(input);
@@ -320,8 +320,8 @@ przycisk9.addEventListener("click", async function ()
                 <option value="cal">Kalorie</option>
                 <option value="kcal">Kilokalorie</option>
                 <option value="Erg">centymetr-gram-sekunda</option>
-                <option value="BTU">Ilość ciepła potrzebna do ogrzania 1 funta wody o 1°F</option>
-                <option value="thm"> ilość ciepła uzyskiwaną ze spalenia określonej objętości gazu</option>
+                <option value="BTU">Ilość ciepla potrzebna do ogrzania 1 funta wody o 1°F</option>
+                <option value="thm"> ilość ciepla uzyskiwaną ze spalenia określonej objętości gazu</option>
     `;
 
     div.appendChild(input);
@@ -357,7 +357,7 @@ przycisk10.addEventListener("click", async function ()
                 <option value="HP">Koń mechaniczny</option>
                 <option value="erg/s">wykonanie pracy o wartości 1 erga w czasie 1 sekundy</option>
                 <option value="ft·lb/min">Stopofunt na minutę</option>
-                <option value="L">jasność słońca</option>
+                <option value="L">jasność slońca</option>
                 <option value="dBW">decybelowat</option>
     `;
 
@@ -373,24 +373,24 @@ przycisk11.addEventListener("click", async function ()
     const odpowiedz = await fetch("sesja.php?typ=sila");
     const ile = parseInt(await odpowiedz.text());
 
-    const div = document.getElementById("jednostki_siły");
+    const div = document.getElementById("jednostki_sily");
 
     const input = document.createElement("input");
 
     input.type = "number";
     input.placeholder = "Wprowadź liczbę";
-    input.id = `number${ile + 2}_siły`;
+    input.id = `number${ile + 2}_sily`;
     
 
     const select = document.createElement("select");
-    select.id = `jednostka${ile + 2}_siły`;
+    select.id = `jednostka${ile + 2}_sily`;
 
     select.innerHTML = `
 
                     <option value="N">Newton</option>
-                    <option value="lbf">Funt siły</option>
-                    <option value="dyn">Dyna <!-- siła, która nadaje masie 1 grama przyspieszenie 1 centymetra na sekundę do kwadratu --></option> 
-                    <option value="kgf">Kilogram siły</option>
+                    <option value="lbf">Funt sily</option>
+                    <option value="dyn">Dyna <!-- sila, która nadaje masie 1 grama przyspieszenie 1 centymetra na sekundę do kwadratu --></option> 
+                    <option value="kgf">Kilogram sily</option>
     `;
 
     div.appendChild(input);
@@ -638,7 +638,7 @@ przycisk19.addEventListener("click", async function ()
 
                 
     <option value="N·m">niutonometr</option>
-    <option value="kgf·m">kilogramosiła metr</option>
+    <option value="kgf·m">kilogramosila metr</option>
     <option value="lb·ft">funt stopa</option>
     <option value="lb·in">funt cal</option>
     `;
@@ -714,20 +714,20 @@ przycisk21.addEventListener("click", async function ()
 });
 
 let przycisk22 = document.getElementById("button22_dodaj");
-Przycisk22.addEventListener("click", async function ()
+przycisk22.addEventListener("click", async function ()
 {
-    const odpowiedz = await fetch("sesja.php?typ=ladunek_elektryczny");
+    const odpowiedz = await fetch("sesja.php?typ=ladunek");
     const ile = parseInt(await odpowiedz.text());
 
-    const div = document.getElementById("jednostki_ładunku_elektrycznego");
+    const div = document.getElementById("jednostki_ladunku");
     const input = document.createElement("input");
 
     input.type = "number";
     input.placeholder = "Wprowadź liczbę";
-    input.id = `number${ile + 2}_ładunku_elektrycznego`;
+    input.id = `number${ile + 2}_ladunek`;
     
     const select = document.createElement("select");
-    select.id = `jednostka${ile + 2}_ładunku_elektrycznego`;
+    select.id = `jednostka${ile + 2}_ladunek`;
     select.innerHTML = `
         <option value="C">kulomb</option>
         <option value="mC">milikulomb</option>
@@ -1716,7 +1716,7 @@ async function przelicznik_mocy(input) {
 }}}
 
 async function przelicznik_sily(input) {
-    const inputy_sily = document.querySelectorAll('#jednostki_siły input[type="number"]');
+    const inputy_sily = document.querySelectorAll('#jednostki_sily input[type="number"]');
 
     let jednostki_sily = { 
         "N": 1, 
@@ -1726,7 +1726,7 @@ async function przelicznik_sily(input) {
     };
     
     const numer_id = input.id.match(/\d+/)[0]; 
-    const jednostka_pobrana = document.getElementById(`jednostka${numer_id}_siły`); 
+    const jednostka_pobrana = document.getElementById(`jednostka${numer_id}_sily`); 
     const wartosc = parseFloat(input.value);
 
     if (isNaN(wartosc)) return; 
@@ -1744,24 +1744,24 @@ async function przelicznik_sily(input) {
     }
 
     for (let i = 1; i <= inputy_sily.length; i++) {
-        const jednostka_zmiana = document.getElementById(`jednostka${i}_siły`);
+        const jednostka_zmiana = document.getElementById(`jednostka${i}_sily`);
         let wynik = 0;
         switch (jednostka_zmiana.value) {
             case "N": 
                 wynik = niutony / jednostki_sily["N"];
-                document.getElementById(`number${i}_siły`).value = wynik;
+                document.getElementById(`number${i}_sily`).value = wynik;
                 break;
             case "lbf":
                 wynik = niutony / jednostki_sily["lbf"];
-                document.getElementById(`number${i}_siły`).value = wynik;
+                document.getElementById(`number${i}_sily`).value = wynik;
                 break;
             case "dyn":
                 wynik = niutony / jednostki_sily["dyn"];
-                document.getElementById(`number${i}_siły`).value = wynik;
+                document.getElementById(`number${i}_sily`).value = wynik;
                 break;  
             case "kgf":
                 wynik = niutony / jednostki_sily["kgf"];
-                document.getElementById(`number${i}_siły`).value = wynik;
+                document.getElementById(`number${i}_sily`).value = wynik;
                 break;
     }}}
 
@@ -2329,7 +2329,7 @@ async function przelicznik_lepkości(input) {
 }
 
 async function przelicznik_ladunku(input) {
-    const inputy_ladunku = document.querySelectorAll('#jednostki_ładunku input[type="number"]');   
+    const inputy_ladunku = document.querySelectorAll('#jednostki_ladunku input[type="number"]');   
 
     let jednostki_ladunku = {
         "C": 1,
@@ -2342,7 +2342,7 @@ async function przelicznik_ladunku(input) {
     };
 
     const numer_id = input.id.match(/\d+/)[0];
-    const jednostka_pobrana = document.getElementById(`jednostka${numer_id}_ładunku`);
+    const jednostka_pobrana = document.getElementById(`jednostka${numer_id}_ladunek`);
     const wartosc = parseFloat(input.value);
 
     if (isNaN(wartosc)) return;
@@ -2373,36 +2373,36 @@ async function przelicznik_ladunku(input) {
     }
 
     for (let i = 1; i <= inputy_ladunku.length; i++) {
-        const jednostka_zmiana = document.getElementById(`jednostka${i}_ładunku`);
+        const jednostka_zmiana = document.getElementById(`jednostka${i}_ladunek`);
         let wynik = 0;
         switch (jednostka_zmiana.value) {
             case "C":
                 wynik = kulomby / jednostki_ladunku["C"];
-                document.getElementById(`number${i}_ładunku`).value = wynik;
+                document.getElementById(`number${i}_ladunek`).value = wynik;
                 break;
             case "mC":
                 wynik = kulomby / jednostki_ladunku["mC"];
-                document.getElementById(`number${i}_ładunku`).value = wynik;
+                document.getElementById(`number${i}_ladunek`).value = wynik;
                 break;
             case "µC":
                 wynik = kulomby / jednostki_ladunku["µC"];
-                document.getElementById(`number${i}_ładunku`).value = wynik;
+                document.getElementById(`number${i}_ladunek`).value = wynik;
                 break;
             case "nC":
                 wynik = kulomby / jednostki_ladunku["nC"];
-                document.getElementById(`number${i}_ładunku`).value = wynik;
+                document.getElementById(`number${i}_ladunek`).value = wynik;
                 break;
             case "pC":
                 wynik = kulomby / jednostki_ladunku["pC"];
-                document.getElementById(`number${i}_ładunku`).value = wynik;
+                document.getElementById(`number${i}_ladunek`).value = wynik;
                 break;
             case "ah":
                 wynik = kulomby / jednostki_ladunku["ah"];
-                document.getElementById(`number${i}_ładunku`).value = wynik;
+                document.getElementById(`number${i}_ladunek`).value = wynik;
                 break;
             case "mAh":
                 wynik = kulomby / jednostki_ladunku["mAh"];
-                document.getElementById(`number${i}_ładunku`).value = wynik;
+                document.getElementById(`number${i}_ladunek`).value = wynik;
                 break;
         }
     }
@@ -2457,7 +2457,7 @@ document.addEventListener("input", function(e){
             przelicznik_mocy(e.target);
             break;
 
-        case "przelicznik_siły":
+        case "przelicznik_sily":
             przelicznik_sily(e.target);
             break;
 
@@ -2497,7 +2497,7 @@ document.addEventListener("input", function(e){
         case "przelicznik_lepkości":
             przelicznik_lepkości(e.target);
             break;
-        case "przelicznik_ładunku":
+        case "przelicznik_ladunku":
             przelicznik_ladunku(e.target);
             break;
     }

@@ -6,7 +6,7 @@
         $_SESSION["jednostki"] = [];
     }
 
-    // zapis wybranej jednostki wysyłany asynchronicznie z kod.js po zmianie <select>
+    // zapis wybranej jednostki wysylany asynchronicznie z kod.js po zmianie <select>
     if (($_GET["akcja"] ?? "") == "zapisz_jednostke")
     {
         $typ_jednostki = $_GET["typ"] ?? "";
@@ -44,7 +44,7 @@
     <main>
     <h2>przeliczniki</h2>
         <div class="przelicznik" id="przelicznik_dlugosci">
-            <h3>przelicznik długości</h3>
+            <h3>przelicznik dlugości</h3>
             <form action="index.php" method="post" name="przelicznik_dlugosci" >
             <div id="jednostki_dlugosci">
             <input type="number" id="number1_dlugosci" placeholder="Wprowadź liczbę">
@@ -208,7 +208,7 @@
                 <option value="mi³"<?= zaznaczona("objetosci", 1, "mi³", "m³") ?>>Mila sześcienna</option>
                 <option value="gal_usa"<?= zaznaczona("objetosci", 1, "gal_usa", "m³") ?>>galon amerykański</option>
                 <option value="gal_uk"<?= zaznaczona("objetosci", 1, "gal_uk", "m³") ?>>galon brytyjski</option>
-                <option value="bar"<?= zaznaczona("objetosci", 1, "bar", "m³") ?>>baryłka</option>
+                <option value="bar"<?= zaznaczona("objetosci", 1, "bar", "m³") ?>>barylka</option>
             </select><br>
 
             <input type="number" id="number2_objetosci" placeholder="Wprowadź liczbę">
@@ -221,7 +221,7 @@
                 <option value="mi³"<?= zaznaczona("objetosci", 2, "mi³", "m³") ?>>Mila sześcienna</option>
                 <option value="gal_usa"<?= zaznaczona("objetosci", 2, "gal_usa", "m³") ?>>galon amerykański</option>
                 <option value="gal_uk"<?= zaznaczona("objetosci", 2, "gal_uk", "m³") ?>>galon brytyjski</option>
-                <option value="bar"<?= zaznaczona("objetosci", 2, "bar", "m³") ?>>baryłka</option>
+                <option value="bar"<?= zaznaczona("objetosci", 2, "bar", "m³") ?>>barylka</option>
             </select><br>
             
             <?php
@@ -238,7 +238,7 @@
                 <option value="mi³"<?= zaznaczona("objetosci", $i + 3, "mi³", "m³") ?>>Mila sześcienna</option>
                 <option value="gal_usa"<?= zaznaczona("objetosci", $i + 3, "gal_usa", "m³") ?>>galon amerykański</option>
                 <option value="gal_uk"<?= zaznaczona("objetosci", $i + 3, "gal_uk", "m³") ?>>galon brytyjski</option>
-                <option value="bar"<?= zaznaczona("objetosci", $i + 3, "bar", "m³") ?>>baryłka</option>
+                <option value="bar"<?= zaznaczona("objetosci", $i + 3, "bar", "m³") ?>>barylka</option>
             </select><br>
             <?php
                     }
@@ -267,9 +267,9 @@
                 <option value="m/h"<?= zaznaczona("prędkości", 1, "m/h", "km/h") ?>>Metr na godzinę</option>
                 <option value="mi/h"<?= zaznaczona("prędkości", 1, "mi/h", "km/h") ?>>Mila na godzinę</option>
                 <option value="ft/s"<?= zaznaczona("prędkości", 1, "ft/s", "km/h") ?>>Stopa na sekundę</option>
-                <option value="mn/h"<?= zaznaczona("prędkości", 1, "mn/h", "km/h") ?>>węzeł</option>
+                <option value="mn/h"<?= zaznaczona("prędkości", 1, "mn/h", "km/h") ?>>węzel</option>
                 <option value="ma"<?= zaznaczona("prędkości", 1, "ma", "km/h") ?>>mach</option>
-                <option value="c"<?= zaznaczona("prędkości", 1, "c", "km/h") ?>>światło</option>
+                <option value="c"<?= zaznaczona("prędkości", 1, "c", "km/h") ?>>światlo</option>
             </select><br>
 
             <input type="number" id="number2_prędkości" placeholder="Wprowadź liczbę">
@@ -280,9 +280,9 @@
                 <option value="m/h"<?= zaznaczona("prędkości", 2, "m/h", "km/h") ?>>Metr na godzinę</option>
                 <option value="mi/h"<?= zaznaczona("prędkości", 2, "mi/h", "km/h") ?>>Mila na godzinę</option>
                 <option value="ft/s"<?= zaznaczona("prędkości", 2, "ft/s", "km/h") ?>>Stopa na sekundę</option>
-                <option value="mn/h"<?= zaznaczona("prędkości", 2, "mn/h", "km/h") ?>>węzeł</option>
+                <option value="mn/h"<?= zaznaczona("prędkości", 2, "mn/h", "km/h") ?>>węzel</option>
                 <option value="ma"<?= zaznaczona("prędkości", 2, "ma", "km/h") ?>>mach</option>
-                <option value="c"<?= zaznaczona("prędkości", 2, "c", "km/h") ?>>światło</option>
+                <option value="c"<?= zaznaczona("prędkości", 2, "c", "km/h") ?>>światlo</option>
             </select><br>
 
             <?php
@@ -297,9 +297,9 @@
                 <option value="m/h"<?= zaznaczona("prędkości", $i + 3, "m/h", "km/h") ?>>Metr na godzinę</option>
                 <option value="mi/h"<?= zaznaczona("prędkości", $i + 3, "mi/h", "km/h") ?>>Mila na godzinę</option>
                 <option value="ft/s"<?= zaznaczona("prędkości", $i + 3, "ft/s", "km/h") ?>>Stopa na sekundę</option>
-                <option value="mn/h"<?= zaznaczona("prędkości", $i + 3, "mn/h", "km/h") ?>>węzeł</option>
+                <option value="mn/h"<?= zaznaczona("prędkości", $i + 3, "mn/h", "km/h") ?>>węzel</option>
                 <option value="ma"<?= zaznaczona("prędkości", $i + 3, "ma", "km/h") ?>>mach</option>
-                <option value="c"<?= zaznaczona("prędkości", $i + 3, "c", "km/h") ?>>światło</option>
+                <option value="c"<?= zaznaczona("prędkości", $i + 3, "c", "km/h") ?>>światlo</option>
             </select><br>
             <?php
                     }
@@ -327,7 +327,7 @@
                 <option value="h"<?= zaznaczona("czasu", 1, "h", "s") ?>>Godziny</option>
                 <option value="d"<?= zaznaczona("czasu", 1, "d", "s") ?>>Dni</option>
                 <option value="wk"<?= zaznaczona("czasu", 1, "wk", "s") ?>>Tygodnie</option>
-                <option value="kw"<?= zaznaczona("czasu", 1, "kw", "s") ?>>kwartał</option>
+                <option value="kw"<?= zaznaczona("czasu", 1, "kw", "s") ?>>kwartal</option>
                 <option value="y"<?= zaznaczona("czasu", 1, "y", "s") ?>>Lata</option>
             </select><br>
 
@@ -338,7 +338,7 @@
                 <option value="h"<?= zaznaczona("czasu", 2, "h", "s") ?>>Godziny</option>
                 <option value="d"<?= zaznaczona("czasu", 2, "d", "s") ?>>Dni</option>
                 <option value="wk"<?= zaznaczona("czasu", 2, "wk", "s") ?>>Tygodnie</option>
-                <option value="kw"<?= zaznaczona("czasu", 2, "kw", "s") ?>>kwartał</option>
+                <option value="kw"<?= zaznaczona("czasu", 2, "kw", "s") ?>>kwartal</option>
                 <option value="y"<?= zaznaczona("czasu", 2, "y", "s") ?>>Lata</option>
             </select><br>
 
@@ -353,7 +353,7 @@
                 <option value="h"<?= zaznaczona("czasu", $i + 3, "h", "s") ?>>Godziny</option>
                 <option value="d"<?= zaznaczona("czasu", $i + 3, "d", "s") ?>>Dni</option>
                 <option value="wk"<?= zaznaczona("czasu", $i + 3, "wk", "s") ?>>Tygodnie</option>
-                <option value="kw"<?= zaznaczona("czasu", $i + 3, "kw", "s") ?>>kwartał</option>
+                <option value="kw"<?= zaznaczona("czasu", $i + 3, "kw", "s") ?>>kwartal</option>
                 <option value="y"<?= zaznaczona("czasu", $i + 3, "y", "s") ?>>Lata</option>
             </select><br>
             <?php
@@ -491,7 +491,7 @@
                 <option value="MePa"<?= zaznaczona("cisnienia", 1, "MePa", "Pa") ?>>Megapaskale</option>
                 <option value="bar"<?= zaznaczona("cisnienia", 1, "bar", "Pa") ?>>bar</option>                
                 <option value="psi "<?= zaznaczona("cisnienia", 1, "psi ", "Pa") ?>>funt na cal kwadratowy</option>
-                <option value="mmHg"<?= zaznaczona("cisnienia", 1, "mmHg", "Pa") ?>>milimetr słupa rtęci</option>
+                <option value="mmHg"<?= zaznaczona("cisnienia", 1, "mmHg", "Pa") ?>>milimetr slupa rtęci</option>
             </select><br>
 
             <input type="number" id="number2_cisnienia" placeholder="Wprowadź liczbę">
@@ -502,7 +502,7 @@
                 <option value="MePa"<?= zaznaczona("cisnienia", 2, "MePa", "Pa") ?>>Megapaskale</option>
                 <option value="bar"<?= zaznaczona("cisnienia", 2, "bar", "Pa") ?>>bar</option>                
                 <option value="psi "<?= zaznaczona("cisnienia", 2, "psi ", "Pa") ?>>funt na cal kwadratowy</option>
-                <option value="mmHg"<?= zaznaczona("cisnienia", 2, "mmHg", "Pa") ?>>milimetr słupa rtęci</option>
+                <option value="mmHg"<?= zaznaczona("cisnienia", 2, "mmHg", "Pa") ?>>milimetr slupa rtęci</option>
             </select><br>
             <?php
                 for($i=0;$i<($_SESSION["cisnienia"] ?? 0);$i++)
@@ -516,7 +516,7 @@
                 <option value="MePa"<?= zaznaczona("cisnienia", $i + 3, "MePa", "Pa") ?>>Megapaskale</option>
                 <option value="bar"<?= zaznaczona("cisnienia", $i + 3, "bar", "Pa") ?>>bar</option>                
                 <option value="psi "<?= zaznaczona("cisnienia", $i + 3, "psi ", "Pa") ?>>funt na cal kwadratowy</option>
-                <option value="mmHg"<?= zaznaczona("cisnienia", $i + 3, "mmHg", "Pa") ?>>milimetr słupa rtęci</option>
+                <option value="mmHg"<?= zaznaczona("cisnienia", $i + 3, "mmHg", "Pa") ?>>milimetr slupa rtęci</option>
             </select><br>
             <?php
                     }
@@ -551,8 +551,8 @@
                 <option value="cal"<?= zaznaczona("energii", 1, "cal", "J") ?>>Kalorie</option>
                 <option value="kcal"<?= zaznaczona("energii", 1, "kcal", "J") ?>>Kilokalorie</option>
                 <option value="Erg"<?= zaznaczona("energii", 1, "Erg", "J") ?>>centymetr-gram-sekunda</option>
-                <option value="BTU"<?= zaznaczona("energii", 1, "BTU", "J") ?>>Ilość ciepła potrzebna do ogrzania 1 funta wody o 1°F</option>
-                <option value="thm"<?= zaznaczona("energii", 1, "thm", "J") ?>>ilość ciepła uzyskiwaną ze spalenia określonej objętości gazu</option>
+                <option value="BTU"<?= zaznaczona("energii", 1, "BTU", "J") ?>>Ilość ciepla potrzebna do ogrzania 1 funta wody o 1°F</option>
+                <option value="thm"<?= zaznaczona("energii", 1, "thm", "J") ?>>ilość ciepla uzyskiwaną ze spalenia określonej objętości gazu</option>
             </select><br>
 
             <input type="number" id="number2_energii" placeholder="Wprowadź liczbę">
@@ -567,8 +567,8 @@
                 <option value="cal"<?= zaznaczona("energii", 2, "cal", "J") ?>>Kalorie</option>
                 <option value="kcal"<?= zaznaczona("energii", 2, "kcal", "J") ?>>Kilokalorie</option>
                 <option value="Erg"<?= zaznaczona("energii", 2, "Erg", "J") ?>>centymetr-gram-sekunda</option>
-                <option value="BTU"<?= zaznaczona("energii", 2, "BTU", "J") ?>>Ilość ciepła potrzebna do ogrzania 1 funta wody o 1°F</option>
-                <option value="thm"<?= zaznaczona("energii", 2, "thm", "J") ?>> ilość ciepła uzyskiwaną ze spalenia określonej objętości gazu</option>
+                <option value="BTU"<?= zaznaczona("energii", 2, "BTU", "J") ?>>Ilość ciepla potrzebna do ogrzania 1 funta wody o 1°F</option>
+                <option value="thm"<?= zaznaczona("energii", 2, "thm", "J") ?>> ilość ciepla uzyskiwaną ze spalenia określonej objętości gazu</option>
             </select><br>
             <?php
                 for($i=0;$i<($_SESSION["energii"] ?? 0);$i++)
@@ -586,8 +586,8 @@
                 <option value="cal"<?= zaznaczona("energii", $i + 3, "cal", "J") ?>>Kalorie</option>
                 <option value="kcal"<?= zaznaczona("energii", $i + 3, "kcal", "J") ?>>Kilokalorie</option>
                 <option value="Erg"<?= zaznaczona("energii", $i + 3, "Erg", "J") ?>>centymetr-gram-sekunda</option>
-                <option value="BTU"<?= zaznaczona("energii", $i + 3, "BTU", "J") ?>>Ilość ciepła potrzebna do ogrzania 1 funta wody o 1°F</option>
-                <option value="thm"<?= zaznaczona("energii", $i + 3, "thm", "J") ?>> ilość ciepła uzyskiwaną ze spalenia określonej objętości gazu</option>
+                <option value="BTU"<?= zaznaczona("energii", $i + 3, "BTU", "J") ?>>Ilość ciepla potrzebna do ogrzania 1 funta wody o 1°F</option>
+                <option value="thm"<?= zaznaczona("energii", $i + 3, "thm", "J") ?>> ilość ciepla uzyskiwaną ze spalenia określonej objętości gazu</option>
             </select><br>
             <?php
                     }
@@ -617,7 +617,7 @@
                 <option value="HP"<?= zaznaczona("mocy", 1, "HP", "W") ?>>Koń mechaniczny</option>
                 <option value="erg/s"<?= zaznaczona("mocy", 1, "erg/s", "W") ?>>wykonanie pracy o wartości 1 erga w czasie 1 sekundy</option>
                 <option value="ft·lb/min"<?= zaznaczona("mocy", 1, "ft·lb/min", "W") ?>>Stopofunt na minutę</option>
-                <option value="L"<?= zaznaczona("mocy", 1, "L", "W") ?>>jasność słońca</option>
+                <option value="L"<?= zaznaczona("mocy", 1, "L", "W") ?>>jasność slońca</option>
                 <option value="dBW"<?= zaznaczona("mocy", 1, "dBW", "W") ?>>decybelowat</option>
             </select><br>
 
@@ -630,7 +630,7 @@
                 <option value="HP"<?= zaznaczona("mocy", 2, "HP", "W") ?>>Koń mechaniczny</option>
                 <option value="erg/s"<?= zaznaczona("mocy", 2, "erg/s", "W") ?>>wykonanie pracy o wartości 1 erga w czasie 1 sekundy</option>
                 <option value="ft·lb/min"<?= zaznaczona("mocy", 2, "ft·lb/min", "W") ?>>Stopofunt na minutę</option>
-                <option value="L"<?= zaznaczona("mocy", 2, "L", "W") ?>>jasność słońca</option>
+                <option value="L"<?= zaznaczona("mocy", 2, "L", "W") ?>>jasność slońca</option>
                 <option value="dBW"<?= zaznaczona("mocy", 2, "dBW", "W") ?>>decybelowat</option>
             </select><br>
             <?php
@@ -646,7 +646,7 @@
                 <option value="HP"<?= zaznaczona("mocy", $i + 3, "HP", "W") ?>>Koń mechaniczny</option>
                 <option value="erg/s"<?= zaznaczona("mocy", $i + 3, "erg/s", "W") ?>>wykonanie pracy o wartości 1 erga w czasie 1 sekundy</option>
                 <option value="ft·lb/min"<?= zaznaczona("mocy", $i + 3, "ft·lb/min", "W") ?>>Stopofunt na minutę</option>
-                <option value="L"<?= zaznaczona("mocy", $i + 3, "L", "W") ?>>jasność słońca</option>
+                <option value="L"<?= zaznaczona("mocy", $i + 3, "L", "W") ?>>jasność slońca</option>
                 <option value="dBW"<?= zaznaczona("mocy", $i + 3, "dBW", "W") ?>>decybelowat</option>
             </select><br>
             <?php
@@ -658,10 +658,10 @@
 
         </div>
 
-        <div class="przelicznik" id="przelicznik_siły">
-            <h3>przelicznik siła</h3>
-            <form action="index.php" method="post" name="przelicznik_siły">
-            <div id="jednostki_siły">
+        <div class="przelicznik" id="przelicznik_sily">
+            <h3>przelicznik sila</h3>
+            <form action="index.php" method="post" name="przelicznik_sily">
+            <div id="jednostki_sily">
                     <?php
                     if(!isset($_SESSION["sila"]))
                     {
@@ -669,31 +669,31 @@
                     }
                 ?>
                 
-            <input type="number" id="number1_siły" placeholder="Wprowadź liczbę">
-            <select id="jednostka1_siły" class="jednostki">
-                <option value="N"<?= zaznaczona("siły", 1, "N", "N") ?>>Newton</option>
-                <option value="lbf"<?= zaznaczona("siły", 1, "lbf", "N") ?>>Funt siły</option>
-                <option value="dyn"<?= zaznaczona("siły", 1, "dyn", "N") ?>>Dyna <!-- siła, która nadaje masie 1 grama przyspieszenie 1 centymetra na sekundę do kwadratu --></option> 
-                <option value="kgf"<?= zaznaczona("siły", 1, "kgf", "N") ?>>Kilogram siły</option>
+            <input type="number" id="number1_sily" placeholder="Wprowadź liczbę">
+            <select id="jednostka1_sily" class="jednostki">
+                <option value="N"<?= zaznaczona("sily", 1, "N", "N") ?>>Newton</option>
+                <option value="lbf"<?= zaznaczona("sily", 1, "lbf", "N") ?>>Funt sily</option>
+                <option value="dyn"<?= zaznaczona("sily", 1, "dyn", "N") ?>>Dyna <!-- sila, która nadaje masie 1 grama przyspieszenie 1 centymetra na sekundę do kwadratu --></option> 
+                <option value="kgf"<?= zaznaczona("sily", 1, "kgf", "N") ?>>Kilogram sily</option>
             </select><br>
 
-            <input type="number" id="number2_siły" placeholder="Wprowadź liczbę">
-            <select id="jednostka2_siły" class="jednostki">
-                <option value="N"<?= zaznaczona("siły", 2, "N", "N") ?>>Newton</option>
-                <option value="lbf"<?= zaznaczona("siły", 2, "lbf", "N") ?>>Funt siły</option>
-                <option value="dyn"<?= zaznaczona("siły", 2, "dyn", "N") ?>>Dyna <!-- siła, która nadaje masie 1 grama przyspieszenie 1 centymetra na sekundę do kwadratu --></option> 
-                <option value="kgf"<?= zaznaczona("siły", 2, "kgf", "N") ?>>Kilogram siły</option>
+            <input type="number" id="number2_sily" placeholder="Wprowadź liczbę">
+            <select id="jednostka2_sily" class="jednostki">
+                <option value="N"<?= zaznaczona("sily", 2, "N", "N") ?>>Newton</option>
+                <option value="lbf"<?= zaznaczona("sily", 2, "lbf", "N") ?>>Funt sily</option>
+                <option value="dyn"<?= zaznaczona("sily", 2, "dyn", "N") ?>>Dyna <!-- sila, która nadaje masie 1 grama przyspieszenie 1 centymetra na sekundę do kwadratu --></option> 
+                <option value="kgf"<?= zaznaczona("sily", 2, "kgf", "N") ?>>Kilogram sily</option>
             </select><br>
             <?php
                 for($i=0;$i<($_SESSION["sila"] ?? 0);$i++)
                     {
             ?>
-            <input type="number" id="number<?= $i + 3 ?>_siły" placeholder="Wprowadź liczbę">
-            <select id="jednostka<?= $i + 3 ?>_siły" class="jednostki">
-                <option value="N"<?= zaznaczona("siły", $i + 3, "N", "N") ?>>Newton</option>
-                <option value="lbf"<?= zaznaczona("siły", $i + 3, "lbf", "N") ?>>Funt siły</option>
-                <option value="dyn"<?= zaznaczona("siły", $i + 3, "dyn", "N") ?>>Dyna <!-- siła, która nadaje masie 1 grama przyspieszenie 1 centymetra na sekundę do kwadratu --></option> 
-                <option value="kgf"<?= zaznaczona("siły", $i + 3, "kgf", "N") ?>>Kilogram siły</option>
+            <input type="number" id="number<?= $i + 3 ?>_sily" placeholder="Wprowadź liczbę">
+            <select id="jednostka<?= $i + 3 ?>_sily" class="jednostki">
+                <option value="N"<?= zaznaczona("sily", $i + 3, "N", "N") ?>>Newton</option>
+                <option value="lbf"<?= zaznaczona("sily", $i + 3, "lbf", "N") ?>>Funt sily</option>
+                <option value="dyn"<?= zaznaczona("sily", $i + 3, "dyn", "N") ?>>Dyna <!-- sila, która nadaje masie 1 grama przyspieszenie 1 centymetra na sekundę do kwadratu --></option> 
+                <option value="kgf"<?= zaznaczona("sily", $i + 3, "kgf", "N") ?>>Kilogram sily</option>
             </select><br>
             <?php
                     }
@@ -1034,7 +1034,7 @@
             <input type="number" id="number1_momentu" placeholder="Wprowadź liczbę">
             <select id="jednostka1_momentu" class="jednostki">
                 <option value="N·m"<?= zaznaczona("momentu", 1, "N·m", "N·m") ?>>niutonometr</option>
-                <option value="kgf·m"<?= zaznaczona("momentu", 1, "kgf·m", "N·m") ?>>kilogramosiła metr</option>
+                <option value="kgf·m"<?= zaznaczona("momentu", 1, "kgf·m", "N·m") ?>>kilogramosila metr</option>
                 <option value="lb·ft"<?= zaznaczona("momentu", 1, "lb·ft", "N·m") ?>>funt stopa</option>
                 <option value="lb·in"<?= zaznaczona("momentu", 1, "lb·in", "N·m") ?>>funt cal</option>
             </select><br>
@@ -1042,7 +1042,7 @@
             <input type="number" id="number2_momentu" placeholder="Wprowadź liczbę">
             <select id="jednostka2_momentu" class="jednostki">
                 <option value="N·m"<?= zaznaczona("momentu", 2, "N·m", "N·m") ?>>niutonometr</option>
-                <option value="kgf·m"<?= zaznaczona("momentu", 2, "kgf·m", "N·m") ?>>kilogramosiła metr</option>
+                <option value="kgf·m"<?= zaznaczona("momentu", 2, "kgf·m", "N·m") ?>>kilogramosila metr</option>
                 <option value="lb·ft"<?= zaznaczona("momentu", 2, "lb·ft", "N·m") ?>>funt stopa</option>
                 <option value="lb·in"<?= zaznaczona("momentu", 2, "lb·in", "N·m") ?>>funt cal</option>
             </select><br>
@@ -1053,7 +1053,7 @@
                 <input type="number" id="number<?= $i + 3 ?>_momentu" placeholder="Wprowadź liczbę">
                 <select id="jednostka<?= $i + 3 ?>_momentu" class="jednostki">
                 <option value="N·m"<?= zaznaczona("momentu", $i + 3, "N·m", "N·m") ?>>niutonometr</option>
-                <option value="kgf·m"<?= zaznaczona("momentu", $i + 3, "kgf·m", "N·m") ?>>kilogramosiła metr</option>
+                <option value="kgf·m"<?= zaznaczona("momentu", $i + 3, "kgf·m", "N·m") ?>>kilogramosila metr</option>
                 <option value="lb·ft"<?= zaznaczona("momentu", $i + 3, "lb·ft", "N·m") ?>>funt stopa</option>
                 <option value="lb·in"<?= zaznaczona("momentu", $i + 3, "lb·in", "N·m") ?>>funt cal</option>
                 </select><br>
@@ -1161,18 +1161,18 @@
                 </form>
         </div>
 
-        <div class="przelicznik" id="ladunek_elektryczny">
-            <h3>przelicznik ładunku elektrycznego</h3>
-            <form action="index.php" method="post" name="przelicznik_ładunku">
-                <div id="jednostki_ładunku">
+        <div class="przelicznik" id="przelicznik_ladunku">
+            <h3>przelicznik ladunku elektrycznego</h3>
+            <form action="index.php" method="post" name="przelicznik_ladunku">
+                <div id="jednostki_ladunku">
                     <?php
                     if(!isset($_SESSION["ladunek"]))
                     {
                         $_SESSION["ladunek"]=0;
                     }
                 ?>
-            <input type="number" id="number1_ładunek" placeholder="Wprowadź liczbę">
-            <select id="jednostka1_ładunek" class="jednostki">
+            <input type="number" id="number1_ladunek" placeholder="Wprowadź liczbę">
+            <select id="jednostka1_ladunek" class="jednostki">
                 <option value="C"<?= zaznaczona("ladunek", 1, "C", "C") ?>>kulomb</option>
                 <option value="mC"<?= zaznaczona("ladunek", 1, "mC", "C") ?>>milikulomb</option>
                 <option value="µC"<?= zaznaczona("ladunek", 1, "µC", "C") ?>>mikrokulomb</option>
@@ -1182,8 +1182,8 @@
                 <option value="mAh"<?= zaznaczona("ladunek", 1, "mAh", "C") ?>>miliamperogodzina</option>
             </select><br>
 
-            <input type="number" id="number2_ładunek" placeholder="Wprowadź liczbę">
-            <select id="jednostka2_ładunek" class="jednostki">
+            <input type="number" id="number2_ladunek" placeholder="Wprowadź liczbę">
+            <select id="jednostka2_ladunek" class="jednostki">
                 <option value="C"<?= zaznaczona("ladunek", 2, "C", "C") ?>>kulomb</option>
                 <option value="mC"<?= zaznaczona("ladunek", 2, "mC", "C") ?>>milikulomb</option>
                 <option value="µC"<?= zaznaczona("ladunek", 2, "µC", "C") ?>>mikrokulomb</option>
@@ -1197,8 +1197,8 @@
                 for($i=0;$i<($_SESSION["ladunek"] ?? 0);$i++)
                     {
             ?>
-                <input type="number" id="number<?= $i + 3 ?>_ładunek" placeholder="Wprowadź liczbę">
-                <select id="jednostka<?= $i + 3 ?>_ładunek" class="jednostki">
+                <input type="number" id="number<?= $i + 3 ?>_ladunek" placeholder="Wprowadź liczbę">
+                <select id="jednostka<?= $i + 3 ?>_ladunek" class="jednostki">
                 <option value="C"<?= zaznaczona("ladunek", $i + 3, "C", "C") ?>>kulomb</option>
                 <option value="mC"<?= zaznaczona("ladunek", $i + 3, "mC", "C") ?>>milikulomb</option>
                 <option value="µC"<?= zaznaczona("ladunek", $i + 3, "µC", "C") ?>>mikrokulomb</option>
