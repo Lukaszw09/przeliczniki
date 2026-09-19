@@ -33,13 +33,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bezpłatny kalkulator do szybkiego przeliczania jednostek długości, powierzchni, objętości, masy, temperatury, czasu, prędkości, energii i wielu innych.">
+    <meta name="keywords" content="przelicznik jednostek, kalkulator jednostek, konwerter jednostek, długość, masa, temperatura, objętość, powierzchnia, matematyka">
+    <meta name="author" content="Łukasz">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="theme-color" content="#090d14">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Strona Matma">
+    <meta property="og:title" content="Przelicznik jednostek – Strona Matma">
+    <meta property="og:description" content="Szybko przeliczaj najpopularniejsze jednostki fizyczne i matematyczne w jednym miejscu.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Przelicznik jednostek – Strona Matma">
+    <meta name="twitter:description" content="Szybko przeliczaj najpopularniejsze jednostki fizyczne i matematyczne w jednym miejscu.">
+    <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="style.css">
-    <title>strona matma</title>
+    <title>Przelicznik jednostek online | Strona Matma</title>
+
 </head>
 
 <body>
     <header>
-        <h1>strona matma</h1>
+        <h1>Przelicznik jednostek online</h1>
+        <p class="opis-strony">Bezpłatne narzędzie do przeliczania jednostek długości, masy, temperatury, czasu, energii i wielu innych wielkości.</p>
     </header>
     <main>
     <h2>przeliczniki</h2>
@@ -1217,11 +1234,11 @@
 
        
     </main>
-    <div class="tabela">
+    <section class="tabela" aria-labelledby="przedrostki-tytul">
+    <h2 id="przedrostki-tytul" class="sr-only">Tabela przedrostków SI</h2>
     <table>
-        <th>
-            <td>przedrostek</td><td>skrót</td><td>potęga</td>
-        </th>
+        <thead><tr><th scope="col">Przedrostek</th><th scope="col">Skrót</th><th scope="col">Potęga</th></tr></thead>
+        <tbody>
         <tr>
             <td>yotta</td><td>Y</td><td>10<sup>24</sup></td>
         </tr>
@@ -1282,8 +1299,9 @@
         <tr>
             <td>yocto</td><td>y</td><td>10<sup>-24</sup></td>
         </tr>
+        </tbody>
     </table>
-    </div>
+    </section>
     <script src="kod.js"></script>
 </body>
 </html>
