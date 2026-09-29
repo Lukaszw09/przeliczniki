@@ -27,6 +27,7 @@
         $zapisana = $_SESSION["jednostki"]["{$typ}_{$numer}"] ?? $domyslna;
         return $zapisana === $wartosc ? " selected" : "";
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -1231,11 +1232,11 @@
             <button id="button22_dodaj" type="button">dodaj jednostkę</button>
             </form>
         </div>
-
+                                                    <!-- dodać api do walut -->
        
     </main>
     <section class="tabela" aria-labelledby="przedrostki-tytul">
-    <h2 id="przedrostki-tytul" class="sr-only">Tabela przedrostków SI</h2>
+    <h2 id="przedrostki-tytul" class="sr-only">Tabela przedrostków</h2>
     <table>
         <thead><tr><th scope="col">Przedrostek</th><th scope="col">Skrót</th><th scope="col">Potęga</th></tr></thead>
         <tbody>
@@ -1301,6 +1302,91 @@
         </tr>
         </tbody>
     </table>
+    </section>
+    <section>
+        <h2>Narzędzia pomiarowe wielkości</h2>
+        <table>
+            <th>
+                <td>wielkość</td><td>narzędzia</td>
+            </th>
+            <tr>
+                <td>długość</td><td>miarka, suwmiarka, taśma mierniczą, dalmierz laserowy</td>
+            </tr>
+            <tr>
+                <td>powierzchnia</td><td>planimetr</td>
+            </tr>
+            <tr>
+                <td>objętość</td><td>menzurka, cylinder miarowy, przepływomierz</td>
+            </tr>
+            <tr>
+                <td>prędkość</td><td>prędkościomierz, radar</td>
+            </tr>
+            <tr>
+                <td>czas</td><td>zegar, stoper, chronometr</td>
+            </tr>
+            <tr>
+                <td>waga</td><td>waga</td>
+            </tr>
+            <tr>
+                <td>temperatura</td><td>termometr</td>
+            </tr>
+            <tr>
+                <td>ciśnienie</td><td>manometr, barometr</td>
+            </tr>
+            <tr>
+                <td>energia</td><td>licznik energii, kalorymetr</td>
+            </tr>
+            <tr>
+                <td>moc</td><td>watomierz, </td>
+            </tr>
+            <tr>
+                <td>siła</td><td>siłomierz</td>
+            </tr>
+            <tr>
+                <td>przyśpieszenie</td><td>akcelerometr</td>
+            </tr>
+            <tr>
+                <td>gęstość</td><td>densytometr, areometr</td>
+            </tr>
+            <tr>
+                <td>częstotliwość</td><td>częstotliwościomierz, oscyloskop</td>
+            </tr>
+            <tr>
+                <td>napięcie</td><td>woltomierz, multimetr</td>
+            </tr>
+            <tr>
+                <td>natężenie prądu</td><td>amperomierz, multimetr</td>
+            </tr>
+            <tr>
+                <td>kąt</td><td>kątomierz, goniometr, inklinometr</td>
+            </tr>
+            <tr>
+                <td>moment obrotowy</td><td>momentomierz</td>
+            </tr>
+            <tr>
+                <td>rezystancja</td><td>omomierz, multimetr</td>
+            </tr>
+            <tr>
+                <td>lepkość</td><td>wiskozymetr</td>
+            </tr>
+            <tr>
+                <td>ładunek elektryczny</td><td>kulometr, elektrometr</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Wzory geometryczne</h2>
+        <!-- dodać więcej wzorów geometrycznych i przenieść to na inna stronę -->
+        <h3>pola</h3>
+        <div class="pole" id="pole_kwadratu">
+            <h4>pole kwadratu</h4>
+            <input type="number" id="bok_kwadratu" placeholder="podaj długość boku:">        
+        </div>
+        <div class="pole" id="pole_kwadratu_przekatna">
+            <h4>pole kwadratu przekątna</h4>
+            <input type="number" id="przekatna_kwadratu" placeholder="podaj długość przekątnej:">        
+        </div>
     </section>
     <script src="kod.js"></script>
 </body>
