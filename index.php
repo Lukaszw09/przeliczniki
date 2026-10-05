@@ -1389,5 +1389,8 @@
         </div>
     </section>
     <script src="kod.js"></script>
+    <footer>
+        <p>copy right by Łukasz Wiktorowski</p>
+    </footer>
 </body>
 </html>
