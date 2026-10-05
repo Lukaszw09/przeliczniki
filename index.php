@@ -1303,12 +1303,13 @@
         </tbody>
     </table>
     </section>
-    <section>
+    <section class="tabela">
         <h2>Narzędzia pomiarowe wielkości</h2>
         <table>
-            <th>
-                <td>wielkość</td><td>narzędzia</td>
-            </th>
+            <thead>
+                <tr><th scope="col">wielkość</th><th scope="col">narzędzia</th></tr>
+            </thead>
+            <tbody>
             <tr>
                 <td>długość</td><td>miarka, suwmiarka, taśma mierniczą, dalmierz laserowy</td>
             </tr>
@@ -1372,6 +1373,7 @@
             <tr>
                 <td>ładunek elektryczny</td><td>kulometr, elektrometr</td>
             </tr>
+            </tbody>
         </table>
     </section>
 
