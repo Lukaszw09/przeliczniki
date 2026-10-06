@@ -1377,9 +1377,12 @@
         </table>
     </section>
 
-    <section>
-        <h2>Wzory geometryczne</h2>
-        <!-- dodać więcej wzorów geometrycznych i przenieść to na inna stronę -->
+   <!-- <section>
+        <h2>Wzory geometryczne</h2>--> 
+        
+         <!-- dodać więcej wzorów geometrycznych i przenieść to na inna stronę -->
+        
+         <!--
         <h3>pola</h3>
         <div class="pole" id="pole_kwadratu">
             <h4>pole kwadratu</h4>
@@ -1389,7 +1392,7 @@
             <h4>pole kwadratu przekątna</h4>
             <input type="number" id="przekatna_kwadratu" placeholder="podaj długość przekątnej:">        
         </div>
-    </section>
+    </section> -->
     <script src="kod.js"></script>
     <footer>
         <p>copy right by Łukasz Wiktorowski</p>
