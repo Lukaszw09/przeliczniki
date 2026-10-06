@@ -507,9 +507,11 @@
                 <option value="kPa"<?= zaznaczona("cisnienia", 1, "kPa", "Pa") ?>>Kilopaskale</option>
                 <option value="HPa"<?= zaznaczona("cisnienia", 1, "HPa", "Pa") ?>>Hektopaskale</option>
                 <option value="MePa"<?= zaznaczona("cisnienia", 1, "MePa", "Pa") ?>>Megapaskale</option>
-                <option value="bar"<?= zaznaczona("cisnienia", 1, "bar", "Pa") ?>>bar</option>                
+                <option value="bar"<?= zaznaczona("cisnienia", 1, "bar", "Pa") ?>>bar</option>    
+                <option value="atm" <?= zaznaczona("cisnienia", 1, "mmHg", "Pa") ?>>Standardowe ciśnienie atmosferyczne</option>            
                 <option value="psi "<?= zaznaczona("cisnienia", 1, "psi ", "Pa") ?>>funt na cal kwadratowy</option>
                 <option value="mmHg"<?= zaznaczona("cisnienia", 1, "mmHg", "Pa") ?>>milimetr slupa rtęci</option>
+                <option value="inHg" <?= zaznaczona("cisnienia", 1, "inHg", "Pa")?>>cal slupa rtęci</option>
             </select><br>
 
             <input type="number" id="number2_cisnienia" placeholder="Wprowadź liczbę">
@@ -518,9 +520,12 @@
                 <option value="kPa"<?= zaznaczona("cisnienia", 2, "kPa", "Pa") ?>>Kilopaskale</option>
                 <option value="HPa"<?= zaznaczona("cisnienia", 2, "HPa", "Pa") ?>>Hektopaskale</option>
                 <option value="MePa"<?= zaznaczona("cisnienia", 2, "MePa", "Pa") ?>>Megapaskale</option>
-                <option value="bar"<?= zaznaczona("cisnienia", 2, "bar", "Pa") ?>>bar</option>                
+                <option value="bar"<?= zaznaczona("cisnienia", 2, "bar", "Pa") ?>>bar</option>   
+                <option value="atm" <?= zaznaczona("cisnienia", 2, "mmHg", "Pa") ?>>Standardowe ciśnienie atmosferyczne</option>             
                 <option value="psi "<?= zaznaczona("cisnienia", 2, "psi ", "Pa") ?>>funt na cal kwadratowy</option>
                 <option value="mmHg"<?= zaznaczona("cisnienia", 2, "mmHg", "Pa") ?>>milimetr slupa rtęci</option>
+                <option value="inHg" <?= zaznaczona("cisnienia", 2, "inHg", "Pa")?>>cal slupa rtęci</option>
+                
             </select><br>
             <?php
                 for($i=0;$i<($_SESSION["cisnienia"] ?? 0);$i++)
@@ -532,9 +537,11 @@
                 <option value="kPa"<?= zaznaczona("cisnienia", $i + 3, "kPa", "Pa") ?>>Kilopaskale</option>
                 <option value="HPa"<?= zaznaczona("cisnienia", $i + 3, "HPa", "Pa") ?>>Hektopaskale</option>
                 <option value="MePa"<?= zaznaczona("cisnienia", $i + 3, "MePa", "Pa") ?>>Megapaskale</option>
-                <option value="bar"<?= zaznaczona("cisnienia", $i + 3, "bar", "Pa") ?>>bar</option>                
+                <option value="bar"<?= zaznaczona("cisnienia", $i + 3, "bar", "Pa") ?>>bar</option>  
+                <option value="atm" <?= zaznaczona("cisnienia", $i + 3, "atm", "Pa") ?>>Standardowe ciśnienie atmosferyczne</option>              
                 <option value="psi "<?= zaznaczona("cisnienia", $i + 3, "psi ", "Pa") ?>>funt na cal kwadratowy</option>
-                <option value="mmHg"<?= zaznaczona("cisnienia", $i + 3, "mmHg", "Pa") ?>>milimetr slupa rtęci</option>
+                <option value="mmHg" <?= zaznaczona("cisnienia", $i + 3, "mmHg", "Pa")?>>milimetr slupa rtęci</option>
+                <option value="inHg" <?= zaznaczona("cisnienia", $i + 3, "inHg", "Pa")?>>cal slupa rtęci</option>
             </select><br>
             <?php
                     }
@@ -1232,6 +1239,48 @@
             <button id="button22_dodaj" type="button">dodaj jednostkę</button>
             </form>
         </div>
+
+        <div class="przelicznik" id="przelicznik_swiatla">
+            <h3>przelicznik swiatla</h3>
+            <form action="index.php" method="post" name="przelicznik_swiatla">
+                <div id="jednostki_swiatla">
+                    <?php
+                    if(!isset($_SESSION["swiatla"]))
+                    {
+                        $_SESSION["swiatla"]=0;
+                    }
+                ?>
+            <input type="number" id="number1_swiatla" placeholder="Wprowadź liczbę">
+            <select id="jednostka1_swiatla" class="jednostki">
+                <option value="cd"<?= zaznaczona("swiatla", 1, "cd", "cd") ?>>kandela</option>
+                <option value="lm"<?= zaznaczona("swiatla", 1, "lm", "cd") ?>>lumen</option>
+                <option value="lx"<?= zaznaczona("swiatla", 1, "lx", "cd") ?>>luks</option>
+            </select><br>
+
+            <input type="number" id="number2_swiatla" placeholder="Wprowadź liczbę">
+            <select id="jednostka2_swiatla" class="jednostki">
+                <option value="cd"<?= zaznaczona("swiatla", 2, "cd", "cd") ?>>kandela</option>
+                <option value="lm"<?= zaznaczona("swiatla", 2, "lm", "cd") ?>>lumen</option>
+                <option value="lx"<?= zaznaczona("swiatla", 2, "lx", "cd") ?>>luks</option>
+
+            </select><br>
+            <?php
+                for($i=0;$i<($_SESSION["swiatla"] ?? 0);$i++)
+                    {
+            ?>
+                <input type="number" id="number<?= $i + 3 ?>_swiatla" placeholder="Wprowadź liczbę">
+                <select id="jednostka<?= $i + 3 ?>_swiatla" class="jednostki">
+                <option value="cd"<?= zaznaczona("swiatla", $i + 3, "cd", "cd") ?>>kandela</option>
+                <option value="lm"<?= zaznaczona("swiatla", $i + 3, "lm", "cd") ?>>lumen</option>
+                <option value="lx"<?= zaznaczona("swiatla", $i + 3, "lx", "cd") ?>>luks</option>
+                </select><br>
+            <?php
+                    }
+            ?>
+            </div>
+            <button id="button23_dodaj" type="button">dodaj jednostkę</button>
+            </form>
+        </div>
                                                     <!-- dodać api do walut -->
        
     </main>
@@ -1377,9 +1426,9 @@
         </table>
     </section>
 
-   <!-- <section>
+    <!-- <section>
         <h2>Wzory geometryczne</h2>--> 
-        
+
          <!-- dodać więcej wzorów geometrycznych i przenieść to na inna stronę -->
         
          <!--

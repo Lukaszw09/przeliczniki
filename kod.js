@@ -280,8 +280,10 @@ przycisk8.addEventListener("click", async function ()
                 <option value="HPa">Hektopaskale</option>
                 <option value="MePa">Megapaskale</option>
                 <option value="bar">bar</option>
+                <option value="atm">Standardowe ciśnienie atmosferyczne</option>
                 <option value="psi ">funt na cal kwadratowy</option>
                 <option value="mmHg">milimetr slupa rtęci</option>
+                <option value="inHg">cal slupa rtęci</option>
     `;
 
     div.appendChild(input);
@@ -736,6 +738,31 @@ przycisk22.addEventListener("click", async function ()
         <option value="pC">pikokulomb</option>
         <option value="ah">amperogodzina</option>
         <option value="mAh">miliamperogodzina</option>
+    `;
+    div.appendChild(input);
+    div.appendChild(select);
+    div.appendChild(document.createElement("br"));
+});
+
+let przycisk23 = document.getElementById("button23_dodaj");
+przycisk23.addEventListener("click", async function ()
+{
+    const odpowiedz = await fetch("sesja.php?typ=swiatla");
+    const ile = parseInt(await odpowiedz.text());
+
+    const div = document.getElementById("jednostki_ladunku");
+    const input = document.createElement("input");
+
+    input.type = "number";
+    input.placeholder = "Wprowadź liczbę";
+    input.id = `number${ile + 2}_swiatla`;
+    
+    const select = document.createElement("select");
+    select.id = `jednostka${ile + 2}_ladunek`;
+    select.innerHTML = `
+    <option value="cd">kandela</option>
+    <option value="lm">lumen</option>
+    <option value="lx">luks</option>
     `;
     div.appendChild(input);
     div.appendChild(select);
@@ -1468,7 +1495,9 @@ async function przelicznik_cisnienia(input) {
         "MePa": 1000000, 
         "bar": 100000, 
         "psi ": 6894.757293168, 
-        "mmHg": 133.322387415 
+        "mmHg": 133.322387415,
+        "atm": 101325,
+        "inHg": 3386.38
     };
 
     const numer_id = input.id.match(/\d+/)[0];
@@ -1492,6 +1521,10 @@ async function przelicznik_cisnienia(input) {
         case "psi ": paskale = wartosc * jednostki_cisnienia["psi "]; 
         break; 
         case "mmHg": paskale = wartosc * jednostki_cisnienia["mmHg"]; 
+        break;
+        case "atm": paskale = wartosc * jednostki_cisnienia["atm"]; 
+        break;
+        case "inHg": paskale = wartosc * jednostki_cisnienia["inHg"]; 
         break;
     }
     for (let i = 1; i <= inputy_cisnienia.length; i++) {
@@ -1526,6 +1559,15 @@ async function przelicznik_cisnienia(input) {
                 wynik = paskale / jednostki_cisnienia["mmHg"];
                 document.getElementById(`number${i}_cisnienia`).value = wynik;
                 break;
+            case "atm":
+                wynik = paskale / jednostki_cisnienia["atm"];
+                document.getElementById(`number${i}_cisnienia`).value = wynik;
+                break;
+            case "inHg":
+                wynik = paskale / jednostki_cisnienia["inHg"];
+                document.getElementById(`number${i}_cisnienia`).value = wynik;
+                break;
+    
         }
 }
 
@@ -2408,6 +2450,53 @@ async function przelicznik_ladunku(input) {
     }
 }
 
+async function przelicznik_swiatla(input) {
+    const inputy_swiatla= document.querySelectorAll('#jednostki_swiatla input[type="number"]');   
+
+    let jednostki_swiatla = {
+        "cd": 1,
+
+    };
+
+    const numer_id = input.id.match(/\d+/)[0];
+    const jednostka_pobrana = document.getElementById(`jednostka${numer_id}_swiatla`);
+    const wartosc = parseFloat(input.value);
+
+    if (isNaN(wartosc)) return;
+
+    let kulomby;
+    switch (jednostka_pobrana.value) {
+        case "cd":
+            kulomby = wartosc * jednostki_swiatla["cd"];
+            break; 
+        case "mC":
+            kulomby = wartosc * jednostki_swiatla["mC"];
+            break;
+        case "µC":
+            kulomby = wartosc * jednostki_swiatla["µC"];
+            break;
+    }
+
+    for (let i = 1; i <= inputy_ladunku.length; i++) {
+        const jednostka_zmiana = document.getElementById(`jednostka${i}_swiatla`);
+        let wynik = 0;
+        switch (jednostka_zmiana.value) {
+            case "cd":
+                wynik = kulomby / jednostki_ladunku["cd"];
+                document.getElementById(`number${i}_swiatla`).value = wynik;
+                break;
+            case "mC":
+                wynik = kulomby / jednostki_ladunku["mC"];
+                document.getElementById(`number${i}_swiatla`).value = wynik;
+                break;
+            case "µC":
+                wynik = kulomby / jednostki_ladunku["µC"];
+                document.getElementById(`number${i}_swiatla`).value = wynik;
+                break;
+        }
+    }
+}
+
 document.addEventListener("input", function(e){
 
     if(!e.target.matches("input[type='number']"))
@@ -2499,6 +2588,9 @@ document.addEventListener("input", function(e){
             break;
         case "przelicznik_ladunku":
             przelicznik_ladunku(e.target);
+            break;
+        case "przelicznik_swiatla":
+            przelicznik_swiatla(e.target);
             break;
     }
 
